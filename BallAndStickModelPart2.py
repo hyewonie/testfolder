@@ -82,8 +82,8 @@ def create_n_BallAndStick(n, r):
             
 #mycell = BallAndStick(0, 0, 0, 0, 0)
 my_cells = create_n_BallAndStick(5, 50)
-#ps = h.PlotShape(True)
-#ps.show(0)
+ps = h.PlotShape(True)
+ps.show(0)
 
 stim = h.NetStim() # Make a new stimulator
 
@@ -111,7 +111,8 @@ h.continuerun(25 * ms)
 
 
 syn_i = h.Vector().record(syn_._ref_i)
-
+h.finitialize(-65 * mV)
+h.continuerun(25 * ms)
 
 fig = plt.figure(figsize=(8,4))
 
@@ -124,11 +125,11 @@ ax1.legend()
 ax1.set_ylabel('mV')
 ax1.set_xticks([]) # Use ax2's tick labels
 
-# ax2 = fig.add_subplot(2, 1, 2)
-# syn_plot = ax2.plot(t, syn_i, color='blue', label='synaptic current')
-# ax2.set_ylabel(h.units('ExpSyn.i'))
-# ax2.set_xlabel('time (ms)')
-# ax2.legend()
+ax2 = fig.add_subplot(2, 1, 2)
+syn_plot = ax2.plot(t, syn_i, color='blue', label='synaptic current')
+ax2.set_ylabel(h.units('ExpSyn.i'))
+ax2.set_xlabel('time (ms)')
+ax2.legend()
 plt.show()
 
 syns = []

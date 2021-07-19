@@ -44,9 +44,9 @@ class BallAndStick:
         return 'BallAndStick[{}]'.format(self._gid)
 
 my_cell = BallAndStick(0)
-#h.PlotShape(False).plot(plt)
-#ps = h.PlotShape(True)
-#ps.show(0)
+h.PlotShape(False).plot(plt)
+ps = h.PlotShape(True)
+ps.show(0)
 
 stim = h.IClamp(my_cell.dend(1))
 stim.get_segment()
